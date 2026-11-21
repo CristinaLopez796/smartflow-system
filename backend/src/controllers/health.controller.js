@@ -1,11 +1,10 @@
+const { ok } = require('../utils/respuesta');
+
 function health(req, res) {
-  res.json({
-    success: true,
-    data: {
-      status: 'ok',
-      service: 'smartflow-api',
-      timestamp: new Date().toISOString(),
-    },
+  return ok(res, {
+    status: 'ok',
+    service: 'smartflow-api',
+    timestamp: new Date().toISOString(),
   });
 }
 
