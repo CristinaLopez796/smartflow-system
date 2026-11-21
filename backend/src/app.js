@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const healthRoutes = require('./routes/health.routes');
+const meRoutes = require('./routes/me.routes');
 const { noEncontrado, manejarErrores } = require('./middlewares/errorHandler');
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use('/api/v1', healthRoutes);
+app.use('/api/v1', meRoutes);
 
 app.use(noEncontrado);
 app.use(manejarErrores);
